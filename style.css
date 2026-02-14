@@ -1,0 +1,377 @@
+body {
+    background-color: #ffe6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    transition: background-color 2s ease;
+}
+
+
+.container {
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+    transition: opacity 1s;
+}
+
+h1 {
+    color: #ff3366;
+    font-size: 3rem;
+}
+
+button {
+    font-size: 1.5rem;
+    padding: 10px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background-color: #ff3366;
+    color: white;
+}
+
+#noBtn {
+    background-color: white;
+    color: #ff3366;
+    border: 2px solid #ff3366;
+    position: absolute;
+}
+
+/* --- letter envelope --- */
+.envelope-wrapper {
+    display: none;
+    position: relative;
+    transition: transform 3s ease-in-out, opacity 3s;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f0f0f0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 270px;
+    height: 180px;
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 1s, z-index 0.5s;
+    z-index: 1;
+    text-align: center;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* Close Button Style */
+.close-btn {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+.text p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    margin: 2px 0;
+    color: #444;
+}
+
+.love-sign {
+    color: #ff3366;
+    font-weight: bold;
+}
+
+/* Flaps */
+.flap-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 150px solid #e0e0e0;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    z-index: 3;
+}
+
+.flap-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-right: 150px solid #e0e0e0;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    z-index: 3;
+}
+
+.flap-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-bottom: 110px solid #ececec;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    z-index: 4;
+}
+
+.flap-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 110px solid #ffffff;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    z-index: 5;
+    transform-origin: top;
+    transition: transform 0.6s 0.2s, z-index 0.4s;
+}
+
+.seal {
+    position: absolute;
+    top: -80px;
+    left: -15px;
+    font-size: 30px;
+}
+
+.text-address {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    z-index: 6;
+    color: #555;
+    width: 100%;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid #eee;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #ff3366;
+    margin-bottom: 2px;
+    object-fit: cover;
+}
+
+.social-icons a {
+    color: #ff3366;
+    margin: 0 5px;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+/* --- Open/Close Animations --- */
+.envelope.open .flap-top {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope.open .card {
+    transform: translateY(-160px);
+    z-index: 2;
+    height: 280px;
+}
+
+.envelope.open .text-address {
+    display: none;
+}
+
+/* --- Wings --- */
+.wings {
+    position: absolute;
+    top: 50px;
+    width: 100px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50% 50% 0 50%;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.left-wing {
+    left: -80px;
+    transform: rotate(-20deg);
+    border-radius: 50% 50% 0 50%;
+    animation: flapLeft 0.5s infinite alternate;
+}
+
+.right-wing {
+    right: -80px;
+    transform: rotate(20deg) scaleX(-1);
+    border-radius: 50% 50% 0 50%;
+    animation: flapRight 0.5s infinite alternate;
+}
+
+@keyframes flapLeft {
+    from {
+        transform: rotate(-20deg);
+    }
+
+    to {
+        transform: rotate(-40deg);
+    }
+}
+
+@keyframes flapRight {
+    from {
+        transform: rotate(20deg) scaleX(-1);
+    }
+
+    to {
+        transform: rotate(40deg) scaleX(-1);
+    }
+}
+
+/* --- Flying Away Animation --- */
+.fly-away {
+    animation: flyUp 3s forwards;
+}
+
+@keyframes flyUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-800px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* --- Final Scene (Big Heart - Fixed Version) --- */
+.final-scene {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.big-heart {
+    background-color: #ff0040;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    clip-path: path("M100 28.4 C45.4-25.6 0 16 0 71 C0 131.1 100 200 100 200 S200 131.1 200 71 C200 16 154.6-25.6 100 28.4");
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(255, 0, 64, 0.8);
+    filter: drop-shadow(0 0 10px rgba(255, 0, 64, 0.8));
+    animation: heartbeat 1.2s infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Shine Effect (Perfectly Inside) --- */
+.shine {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(to bottom right,
+            rgba(255, 255, 255, 0) 40%,
+            rgba(255, 255, 255, 0.9) 50%,
+            rgb(247, 243, 243) 60%);
+    z-index: 25;
+    mix-blend-mode: soft-light;
+    opacity: 0.8;
+    animation: shineMoveDiagonal 3s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes shineMoveDiagonal {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50%, 50%);
+    }
+}
+
+/* Typing Text*/
+.heart-text {
+    transform: none;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 30;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    margin-top: -20px;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.emoji-fall {
+    position: fixed;
+    top: -10vh;
+    font-size: 2rem;
+    z-index: 15;
+    animation: fall linear forwards;
+}
+
+.rose-petal {
+    position: fixed;
+    top: -10vh;
+    background: #ff0040;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px 0px;
+    z-index: 5;
+    opacity: 0.8;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}

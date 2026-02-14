@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Valentine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container" id="questionScreen">
+        <h1>Will you be my Valentine? 💖</h1>
+        <div class="buttons">
+            <button id="yesBtn" onclick="openEnvelope()">Yes! 😍</button>
+            <button id="noBtn" onmouseover="moveButton()">No 😢</button>
+        </div>
+    </div>
+
+    <div class="envelope-wrapper" id="envelopeScreen">
+        <div class="wings left-wing"></div> <div class="wings right-wing"></div> <div class="envelope" id="envelope">
+            <div class="front">
+                <div class="text-address">To: My Valentine 🌹</div>
+            </div>
+            <div class="card" id="card">
+                <span class="close-btn" onclick="closeLetter()">✖</span>
+                
+                <div class="text">
+                    <p>My Dearest,</p>
+                    <p>Happy Valentine's Day! <br>
+                    You make my world brighter just by being in it.</p>
+                    <p class="love-sign">With Love,</p>
+                </div>
+                <div class="footer">
+                    <img src="profile.jpg" alt="My Profile" class="profile-pic"> 
+                    <br>
+                    <div class="social-icons">
+                        <a href="https://web.facebook.com/profile.php?id=61585829794060" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/tashila.dilshan/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@tashila.dilshan" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://twitter.com/tashila_dilshan" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/tashila-dilshan-kumara-a2557025b" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/tashila-dilshan" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h6>Tashila Dilshan Kumara</h6>
+                </div>
+            </div>
+            <div class="flap-left"></div>
+            <div class="flap-right"></div>
+            <div class="flap-bottom"></div>
+            <div class="flap-top">
+                <div class="seal">🩷</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="final-scene" id="finalScene">
+        <div class="big-heart">
+            <div class="shine"></div>
+            <div class="heart-text" id="typingText"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
