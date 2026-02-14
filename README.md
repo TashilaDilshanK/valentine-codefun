@@ -3,7 +3,7 @@
 A romantic and interactive web-based Valentine's Day proposal card created using HTML, CSS, and JavaScript.
 
 ## 🔗 Live Demo
-[Click here to view the project](https://tashila-dilshan.github.io/my-valentine-2026/)  
+[Click here to view the project](https://tashiladilshank.github.io/valentine-codefun/)  
 *(Replace `my-valentine-2026` with your actual repository name if it's different)*
 
 ## ✨ Features
